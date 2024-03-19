@@ -1,0 +1,47 @@
+
+<div *ngIf="!isUserLogged" class="no-logged-user">
+    <h3>Basket is empty.</h3>
+    <span><a routerLink="/account">Sign In</a> or <a routerLink="/create-account">Create an Account</a> to add Books to your Basket.</span>
+</div>
+
+<div *ngIf="isUserLogged && isBasketEmpty" class="no-logged-user">
+    <h3>Basket is empty</h3>
+    <span>Check our <a routerLink="/books">Books</a>.</span>
+</div>
+
+<div *ngIf="isUserLogged && !isBasketEmpty">
+    <h2>Basket</h2>
+    <div class="basket-item" *ngFor="let book of books">
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <button (click)="deleteFromBasketConfirm(book)" type="button" class="btn btn-sm"><i class="fa fa-trash"></i></button>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <a [routerLink]="['/books', book.bookId]"><img src="{{siteName}}{{book.image}}" class="book-img" /></a>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4">
+                <a [routerLink]="['/books', book.bookId]"><span class="book-title">{{book.title}}</span></a>
+                <span class="book-author">{{book.authorLastName}}, {{book.authorFirstName}}</span>
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                <div class="counter">
+                    <counter [counter]="book.count" (change)="changeCounter($event, book)"></counter>
+                </div>
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <span *ngIf="book.discount" class="book-price">{{book.discount * book.count | currency:'EUR'}}</span><br />
+                <span class="book-price" [ngClass]="{'discount': book.discount}">{{book.price * book.count | currency:'EUR'}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!isBasketEmpty" class="row">
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col totals">
+            <span class="totals-title">Subtotal</span>
+            <span class="totals-price">{{totalPrice | currency:'EUR'}}</span>
+            <button type="button" class="btn btn-primary" (click)="pay()">Proceed to checkout</button>
+        </div>
+    </div>
+</div>

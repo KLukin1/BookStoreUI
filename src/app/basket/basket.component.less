@@ -1,0 +1,183 @@
+
+.no-logged-user {
+    padding: 20px;
+    height: 250px;
+
+    span {
+        display: block;
+        margin-top: 50px;
+    }
+}
+
+h2 {
+    margin: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.basket-item {
+    border-top: 1px solid #ddd;
+    height: 110px;
+    padding: 10px;
+    margin: 10px;
+
+    &:last-child {
+        border-bottom: 1px solid #ddd;
+    }
+
+    button {
+        padding-left: 15px;
+        padding-right: 15px;
+
+        i {
+            font-size: 12px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .book-img {
+        height: 100px;
+        width: 65px;
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    span {
+        display: block;
+    }
+
+    .book-title {
+        font-size: 17px;
+        font-weight: 500;
+    }
+
+    .book-author {
+        color: #888;
+        font-size: 14px;
+    }
+
+    .book-price {
+        font-size: 16px;
+        font-weight: 500;
+        color: #5f1d2b;
+        float: right;
+    }
+
+    .discount {
+        text-decoration: line-through;
+        color: #888;
+        font-size: 14px;
+        padding-left: 15px;
+    }
+}
+
+.totals {
+    padding: 10px;
+    margin: 10px;
+    margin-top: 20px;
+
+    .totals-title {
+        font-size: 18px;
+        font-weight: 400;
+        padding-right: 50px;
+    }
+
+    .totals-price {
+        font-size: 20px;
+        margin-left: 20px;
+    }
+
+    button {
+        margin: 0;
+        margin-top: 10px;
+    }
+}
+
+//small
+@media screen and (max-width: 767px) and (min-width: 577px) {
+
+    .basket-item {
+        .counter {
+            width: 30px;
+        }
+    }
+}
+
+//xsmall
+@media screen and (max-width: 576px) and (min-width: 400px) {
+
+    h2 {
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
+    .basket-item {
+        .col-xs-2 {
+            position: relative;
+            width: 100%;
+            padding-right: 5px;
+            padding-left: 5px;
+            flex: 0 0 15%;
+            max-width: 15%;
+        }
+
+        .col-xs-4 {
+            position: relative;
+            width: 100%;
+            padding-right: 5px;
+            padding-left: 15px;
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+
+        .counter {
+            width: 30px;
+        }
+    }
+}
+
+//xxsmall
+@media screen and (max-width: 399px) {
+
+    h2 {
+        padding-top: 20px;
+        padding-left: 20px;
+    }
+
+    .basket-item {
+        .col-xs-2 {
+            position: relative;
+            width: 100%;
+            padding-right: 5px;
+            padding-left: 5px;
+            flex: 0 0 15%;
+            max-width: 15%;
+        }
+
+        .col-xs-4 {
+            position: relative;
+            width: 100%;
+            padding-right: 5px;
+            padding-left: 15px;
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+
+        .counter {
+            width: 25px;
+        }
+
+        .book-img {
+            padding-left: 10px;
+            width: 40px;
+            height: 50px;
+        }
+    }
+}

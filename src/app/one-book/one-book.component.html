@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col legend">
+            <a [routerLink]="['/home']">Home</a>
+            &nbsp;/&nbsp;
+            <a [routerLink]="['/books', {categoryName: book.categoryName}]">{{book.categoryName}}</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col image-wrap">
+            <img src="{{siteName}}/{{book.image}}" class="book-image" />
+        </div>
+        <div class="col text-wrap">
+            <span class="title-text">{{book.title}}</span>
+            <a [routerLink]="['/books', {author: book.authorLastName}]"><span class="author-text">{{book.authorLastName}}, {{book.authorFirstName}}</span></a>
+            <span class="price-text" [ngClass]="{'discount': book.discount}">{{book.price | currency:"EUR"}}</span>
+            <span class="price-text" *ngIf="book.discount">{{book.discount | currency:"EUR"}}</span>
+            <div class="counter">
+                <counter [counter]="count" (change)="changeCount($event)"></counter>
+            </div>
+            <button type="button" (click)="addToBasket(book.bookId, count)" class="btn btn-dark">Add to Basket</button>
+        </div>
+    </div>
+
+    <span class="subtitle">Summary</span>
+    <p class="summary-text">{{book.summary}}</p>
+
+    <span class="subtitle">Product Details</span>
+    <div class="row details">
+        <div class="col no-padding">
+            <span>Publication date</span>
+            <span>ISBN</span>
+        </div>
+        <div class="col small-text">
+            <span>{{book.year}}</span>
+            <span>{{book.iSBN}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+
+<div *ngIf="!isUserLogged" class="no-logged-user">
+    <h3>Previous purchases are empty.</h3>
+    <span><a routerLink="/account">Sign In</a> to see your previous purchases.</span>
+</div>
+
+<div *ngIf="isUserLogged && isHistoryEmpty" class="no-logged-user">
+    <h3>Previous purchases are empty</h3>
+    <span>Check our <a routerLink="/books">Books</a>.</span>
+</div>
+
+<div *ngIf="isUserLogged && !isHistoryEmpty">
+    <h2>Previous purchases</h2>
+    <div class="card flex justify-content-center">
+        <p-accordion [activeIndex]="0">
+            <div *ngFor="let purchases of history">
+                <p-accordionTab header="Purchase on date: {{purchases.datePayed | date: 'd/MM/yyyy'}} ({{purchases.datePayed | date: 'H:mm'}})">
+                    <div class="basket-item" *ngFor="let purchase of purchases.items">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <a [routerLink]="['/books', purchase.bookId]"><img src="{{siteName}}{{purchase.image}}" class="book-img" /></a>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-xs-4">
+                                <a [routerLink]="['/books', purchase.bookId]"><span class="book-title">{{purchase.title}}</span></a>
+                                <span class="book-author">{{purchase.authorLastName}}, {{purchase.authorFirstName}}</span>
+                            </div>
+                            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                                <span>{{purchase.count}}</span>
+                            </div>
+                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <span *ngIf="purchase.discount" class="book-price">{{purchase.discount * purchase.count | currency:'EUR'}}</span><br />
+                                <span class="book-price" [ngClass]="{'discount': purchase.discount}">{{purchase.price * purchase.count | currency:'EUR'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col"></div>
+                        <div class="col totals">
+                            <span class="totals-title">Subtotal</span>
+                            <span class="totals-price">{{purchases.totalSum | currency:'EUR'}}</span>
+                        </div>
+                    </div>
+                </p-accordionTab>
+            </div>
+        </p-accordion>
+    </div>
+</div>
+
+

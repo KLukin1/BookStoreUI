@@ -1,0 +1,184 @@
+
+.top-menu {
+    background-color: #5f1d2b;
+    color: #fff;
+
+    .top-menu-text {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .phone-num {
+            color: #fff;
+            font-size: 14px;
+
+            &:hover {
+                color: #bbb;
+            }
+        }
+
+        .login {
+            color: #fff;
+            font-size: 14px;
+            float: right;
+
+            &:hover {
+                color: #bbb;
+                cursor: pointer;
+            }
+        }
+
+        .logout {
+            color: #fff;
+            font-size: 14px;
+            float: right;
+        }
+    }
+}
+
+.screen-body {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .col-content {
+        margin-top: 20px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .col {
+        padding: 0;
+    }
+
+    menu {
+        padding: 0;
+        margin-top: 50px;
+    }
+
+    .body-content {
+        padding: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 3px 0px #b6b6b6;
+    }
+
+    .margin-right-20 {
+        margin-right: 20px;
+    }
+}
+
+footer {
+    background-color: #5f1d2b;
+    color: #fff;
+    margin-top: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+    .footer-body {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+
+        a {
+            color: #fff;
+
+            .fa-facebook:hover {
+                color: #316FF6;
+            }
+
+            .fa-youtube:hover {
+                color: #CD201F;
+            }
+
+            .fa-twitter:hover {
+                color: #1DA1F2;
+            }
+
+            i {
+                font-size: 30px;
+                margin: 0 15px 50px 15px;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 400;
+        }
+    }
+}
+
+//large
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .top-menu {
+        .top-menu-text {
+            max-width: 890px;
+        }
+    }
+
+    .screen-body {
+        max-width: 890px;
+    }
+}
+
+//medium
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    .top-menu {
+        .top-menu-text {
+            max-width: 650px;
+        }
+    }
+
+    .screen-body {
+        max-width: 650px;
+
+        .sidebar-md-sm-hide {
+            display: none;
+        }
+    }
+}
+
+//small
+@media screen and (max-width: 767px) and (min-width: 577px) {
+
+    .top-menu {
+        .top-menu-text {
+            max-width: 500px;
+        }
+    }
+
+    .screen-body {
+        max-width: 500px;
+
+        .sidebar-md-sm-hide {
+            display: none;
+        }
+    }
+}
+
+//xsmall
+@media screen and (max-width: 576px) {
+
+    .top-menu {
+        display: none;
+    }
+
+    .screen-body {
+        width: 100vw;
+        max-width: 100%;
+        margin: 0;
+
+        menu {
+            margin-bottom: 0;
+        }
+
+        .body-content {
+            padding: 0;
+        }
+
+        .sidebar-md-sm-hide {
+            display: none;
+        }
+    }
+}

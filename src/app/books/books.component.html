@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="row sidebar-md-sm-show">
+        <sidebar></sidebar>
+    </div>
+    <div class="row">
+        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-8">
+            <span>{{books.length}} Results</span>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-4">
+            <div class="dropdown">
+                <button type="button" class="btn btn-sm dropdown-toggle dropdown-button" data-toggle="dropdown"
+                        [innerHTML]="buttonText" id="dropdownMenu1" aria-haspopup="true" aria-expanded="false">
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-primary">
+                    <a (click)="sortAZ()" class="dropdown-item">Title: A-Z</a>
+                    <a (click)="sortZA()" class="dropdown-item">Title: Z-A</a>
+                    <a (click)="sortLowHigh()" class="dropdown-item">Price: Low to High</a>
+                    <a (click)="sortHighLow()" class="dropdown-item">Price: High to Low</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div *ngIf="loader">
+            <loader></loader>
+        </div>
+        <div class="col-4 col-xs-6 one-book" *ngFor="let book of books">
+            <div class="book-wrapper">
+                <a [routerLink]="['/books', book.bookId]"><img src="{{siteName}}/{{book.image}}" class="book-img" /></a>
+                <a [routerLink]="['/books', book.bookId]"><span class="title-text">{{book.title}}</span></a>
+                <span class="author-text">{{book.authorLastName}}, {{book.authorFirstName}}</span>
+                <div class="row price">
+                    <span class="col price-text" [ngClass]="{'discount': book.discount}">{{book.price | currency:"EUR"}}</span>
+                    <span class="col price-text" *ngIf="book.discount">{{book.discount | currency:"EUR"}}</span>
+                </div>
+                <button type="button" (click)="addToBasket(book.bookId, count1)" class="btn btn-sm btn-dark">Add to Basket</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+
+.search-div {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 0 auto auto;
+    position: relative;
+
+    input {
+        width: 400px;
+        color: #777;
+    }
+
+    .search-wrapper {
+        position: absolute;
+        z-index: 2;
+
+        .search-results {
+            background-color: #fff;
+            border-bottom: 1px solid #999;
+            width: 399px;
+
+            .book-image {
+                height: 80px;
+                width: 50px;
+                margin: 3px 25px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .book-title {
+                display: block;
+                padding-right: 10px;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #777;
+                }
+            }
+        }
+    }
+}
+
+//medium
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    .search-div {
+        max-width: 300px;
+
+        input {
+            width: 300px;
+        }
+
+        .search-wrapper {
+            .search-results {
+                width: 299px;
+
+                .book-image {
+                    margin: 3px 15px;
+                }
+            }
+        }
+    }
+}
+
+//small
+@media screen and (max-width: 767px) and (min-width: 577px) {
+
+    .search-div {
+        max-width: 220px;
+
+        input {
+            width: 220px;
+        }
+
+        .search-wrapper {
+            .search-results {
+                width: 219px;
+
+                .book-image {
+                    height: 70px;
+                    width: 40px;
+                    margin: 3px 5px;
+                }
+
+                .book-title {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+//xsmall
+@media screen and (max-width: 576px) {
+
+    .search-div {
+        margin: 50px auto 0 auto;
+        max-width: 250px;
+
+        input {
+            width: 250px;
+        }
+
+        .search-wrapper {
+            .search-results {
+                width: 250px;
+            }
+        }
+    }
+}
+//xxsmall
+@media screen and (max-width: 399px) {
+}

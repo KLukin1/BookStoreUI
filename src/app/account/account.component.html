@@ -1,0 +1,54 @@
+
+<div *ngIf="isUserLogged" class="user-logged row">
+    <div class="col-3">
+        <span>First Name:</span>
+        <span>Last Name:</span>
+        <span>Email:</span>
+    </div>
+    <div class="col-9">
+        <span>{{currentUser.firstName}}</span>
+        <span>{{currentUser.lastName}}</span>
+        <span>{{currentUser.email}}</span>
+    </div>
+    <button class="logout-btn"><logout (click)="logout()"></logout></button>
+</div>
+
+<div *ngIf="!isUserLogged" class="row">
+    <div class="col sign-in">
+        <h2>Sign In</h2>
+        <div *ngIf="isLoginError" class="red-text">Incorrect Email or Password</div>
+        <form #f="ngForm" [formGroup]="signInForm" (ngSubmit)="onSignIn(f)">
+            <div>
+                <label>Email:</label><br />
+                <input type="text" formControlName="Email" />
+                <div *ngIf="getEmail.invalid && getEmail.touched" class="alert alert-danger">
+                    <div *ngIf="getEmail.errors.required">Required field</div>
+                    <div *ngIf="getEmail.errors.email">Email is incorrect</div>
+                </div>
+            </div>
+            <div>
+                <label>Password:</label><br />
+                <input type="password" formControlName="Password" />
+                <div *ngIf="getPassword.invalid && getPassword.touched" class="alert alert-danger">
+                    <div *ngIf="getPassword.errors.required">Required field</div>
+                    <div *ngIf="getPassword.errors.minlength">Password must have at least {{getPassword.errors.minlength.requiredLength}} characters</div>
+                    <div *ngIf="getPassword.errors.maxlength">Password can't have more than {{getPassword.errors.maxlength.requiredLength}} characters</div>
+                    <div *ngIf="getPassword.errors.cannotContainSpace">Password cannot contain space</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button><br />
+            <a routerLink="/forgot-password" class="forgot-pass">Forgot Password?</a>
+        </form>
+    </div>
+    <div class="col register">
+        <h4>New Customer?</h4>
+        <span>Create an account with us and you'll be able to:</span>
+        <ul>
+            <li>Check out faster</li>
+            <li>Access your order history</li>
+            <li>Track new orders</li>
+            <li>Get best deals</li>
+        </ul>
+        <button routerLink="/create-account" type="button" class="btn btn-primary">Create an Account</button>
+    </div>
+</div>

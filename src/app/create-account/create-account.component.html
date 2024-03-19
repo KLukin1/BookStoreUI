@@ -1,0 +1,51 @@
+<div class="create-account">
+    <h2>Create Account</h2>
+    <form #f="ngForm" [formGroup]="registerForm" (ngSubmit)="onRegister(f)">
+        <div>
+            <label>First Name:</label><br />
+            <input type="text" formControlName="FirstName" />
+            <div *ngIf="getFirstName.invalid && getFirstName.touched" class="alert alert-danger">
+                <div *ngIf="getFirstName.errors.required">Required field</div>
+            </div>
+        </div>
+        <div>
+            <label>Last Name:</label><br />
+            <input type="text" formControlName="LastName" required />
+            <div *ngIf="getLastName.invalid && getLastName.touched" class="alert alert-danger">
+                <div *ngIf="getLastName.errors.required">Required field</div>
+            </div>
+        </div>
+        <div>
+            <label>Address:</label><br />
+            <input type="text" formControlName="DeliveryAddress" required />
+            <div *ngIf="getDeliveryAddress.invalid && getDeliveryAddress.touched" class="alert alert-danger">
+                <div *ngIf="getDeliveryAddress.errors.required">Required field</div>
+            </div>
+        </div>
+        <div>
+            <label>Email:</label><br />
+            <input type="text" formControlName="Email" required email />
+            <div *ngIf="getEmail.invalid && getEmail.touched" class="alert alert-danger">
+                <div *ngIf="getEmail.errors.required">Required field</div>
+                <div *ngIf="getEmail.errors.email">Email incorrect</div>
+            </div>
+        </div>
+        <div>
+            <label>Password:</label><br />
+            <input type="password" formControlName="Password" required />
+            <div *ngIf="getPassword.invalid && getPassword.touched" class="alert alert-danger">
+                <div *ngIf="getPassword.errors.required">Required field</div>
+                <div *ngIf="getPassword.errors.minlength">Password must have at least {{getPassword.errors.minlength.requiredLength}} characters</div>
+                <div *ngIf="getPassword.errors.maxlength">Password can't have more than {{getPassword.errors.maxlength.requiredLength}} characters</div>
+                <div *ngIf="getPassword.errors.cannotContainSpace">Password cannot contain space</div>
+            </div>
+        </div>
+        <div>
+            <label>Confirm Password:</label><br />
+            <input type="password" formControlName="ConfirmPassword" required />
+            <div *ngIf="getConfirmPassword.invalid && getConfirmPassword.touched && getConfirmPassword.errors.required" class="alert alert-danger">Required field</div>
+            <div *ngIf="getConfirmPassword.touched && (getConfirmPassword.value != getPassword.value)" class="alert alert-danger">Passwords don't match</div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Register</button>
+    </form>
+</div>

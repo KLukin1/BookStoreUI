@@ -1,0 +1,16 @@
+
+<div class="search-div">
+    <input (keyup)="search(input)" #input placeholder=" Search by title..." type="text" />
+    <div class="search-wrapper" *ngIf="isSearcResultShown">
+        <div class="search-results" *ngFor="let book of show5Books">
+            <div class="row">
+                <div class="col-3">
+                    <img [routerLink]="['/books', book.bookId]" src="{{siteName}}/{{book.image}}" class="book-image" />
+                </div>
+                <div class="col-9">
+                    <span [routerLink]="['/books', book.bookId]" class="book-title">{{book.title}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

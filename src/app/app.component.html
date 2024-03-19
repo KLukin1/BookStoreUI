@@ -1,0 +1,40 @@
+
+<div class="top-menu">
+    <div class="top-menu-text">
+        <a href="" class="phone-num"><i class="fa fa-phone"></i>&nbsp;&nbsp;+555 34178354</a>
+        <a *ngIf="isUserLogged" class="logout"><logout (click)="logout()"></logout></a>
+        <a *ngIf="!isUserLogged" routerLink="/account" class="login">Sign In / Sign Up</a>
+    </div>
+</div>
+
+<div class="screen-body container">
+    <div class="row">
+        <div class="col">
+            <menu></menu>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-content col-xl-3 col-lg-3 sidebar-md-sm-hide">
+            <div class="body-content margin-right-20">
+                <sidebar></sidebar>
+            </div>
+        </div>
+        <div class="col-content col-xl-9 col-lg-9">
+            <div class="body-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+
+<notifier-container></notifier-container>
+
+<footer>
+    <div class="footer-body">
+        <a href=""><i class="fab fa-facebook"></i></a>
+        <a href=""><i class="fab fa-youtube"></i></a>
+        <a href=""><i class="fab fa-twitter"></i></a>
+        <p>&copy; 2020 Klara Lukin. All Rights Reserved.</p>
+    </div>
+</footer>
+

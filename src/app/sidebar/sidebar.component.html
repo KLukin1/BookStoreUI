@@ -1,0 +1,24 @@
+
+<div class="sidebar-body">
+    <span>Shop by Category</span>
+    <br /><br />
+    <div *ngIf="loader">
+        <loader></loader>
+    </div>
+    <div *ngFor="let category of categoryUI" class="categories">
+        <a (click)="closeHamburger()"
+           [routerLink]="['/books', {categoryName: category.categoryName}]">
+            {{category.categoryName}}
+        </a>
+        <i class="fa fa-chevron-down" (click)="dropdown(category)"></i>
+
+        <div *ngIf="selectedCategory.categoryName == category.categoryName">
+            <div *ngFor="let author of category.authors" class="authors">
+                <a (click)="closeHamburger()"
+                   [routerLink]="['/books', {categoryName: category.categoryName, author: getLastName(author)}]">
+                    {{author}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+.header-div {
+    .main-logo {
+        width: 250px;
+    }
+}
+
+nav {
+    box-shadow: 0 0 8px 0px #b6b6b6;
+    background-color: #fff !important;
+
+    a {
+        margin-right: 50px;
+        border-bottom: solid 2px #fff;
+        font-size: 18px;
+        font-weight: 400;
+        padding: 10px;
+
+        &:hover {
+            border-bottom: solid 2px #000;
+        }
+    }
+
+    .menu-active {
+        background-color: #ebebeb;
+        border-radius: 10px;
+    }
+
+    .navbar-hamburger {
+        display: none;
+    }
+}
+
+//medium
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    .header-div {
+        .main-logo {
+            width: 220px;
+        }
+    }
+
+    nav {
+        a {
+            font-size: 17px;
+        }
+    }
+}
+
+//small
+@media screen and (max-width: 767px) and (min-width: 577px) {
+
+    .header-div {
+        .main-logo {
+            width: 220px;
+            padding-bottom: 30px;
+        }
+    }
+
+    nav {
+        a {
+            margin-right: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+}
+
+//xsmall
+@media screen and (max-width: 576px) {
+
+    .header-div {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    nav {
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        position: fixed;
+        z-index: 2;
+
+        a {
+            line-height: 0;
+            font-size: 0;
+            color: transparent;
+            padding: 0 20px;
+            margin-right: 0;
+
+            i {
+                line-height: 20px;
+                font-size: 20px;
+                color: #000;
+            }
+
+            &:hover {
+                border-bottom: none;
+            }
+        }
+
+        .navbar-hamburger {
+            display: block;
+        }
+
+        .show-sidemenu {
+            width: 100vw;
+            height: 100vh;
+
+            .sidemenu-body {
+                width: 280px;
+            }
+        }
+    }
+}
+
+//xxsmall
+@media screen and (max-width: 399px) {
+
+    nav {
+        a {
+            padding: 0 14px;
+        }
+    }
+}

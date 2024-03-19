@@ -1,0 +1,172 @@
+
+.sidebar-md-sm-show {
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.dropdown-button {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #5f1d2b !important;
+
+    &:hover {
+        background-color: #4e4e4e !important;
+    }
+}
+
+.book-wrapper {
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    height: 400px;
+    box-shadow: 0 0 3px 0px #e1e1e1;
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .book-img {
+        width: 150px;
+        height: 220px;
+        transition: transform 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    span {
+        display: block;
+        width: 150px;
+        margin: 0 auto;
+        padding-top: 5px;
+    }
+
+    .title-text {
+        font-size: 15px;
+        cursor: pointer;
+        height: 49px;
+
+        &:hover {
+            color: #777;
+        }
+    }
+
+    .author-text {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .price {
+        width: 150px;
+        margin: 0 auto;
+
+        .price-text {
+            font-size: 18px;
+            color: #5f1d2b;
+            padding: 0;
+            padding-top: 5px;
+        }
+
+        .discount {
+            text-decoration: line-through;
+            font-size: 16px;
+            color: #888;
+        }
+    }
+
+    button {
+        margin-top: 10px;
+        background-color: #2b2b2b;
+    }
+}
+
+//large
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+}
+
+//medium
+@media screen and (max-width: 991px) and (min-width: 768px) {
+
+    .sidebar-md-sm-show {
+        display: block;
+    }
+}
+
+//small
+@media screen and (max-width: 767px) {
+
+    .sidebar-md-sm-show {
+        display: block;
+    }
+
+    .one-book {
+        padding-right: 5px;
+        padding-left: 5px;
+
+        .book-wrapper {
+            height: 380px;
+
+            .book-img {
+                width: 120px;
+                height: 190px;
+            }
+
+            span {
+                width: 120px;
+            }
+
+            .title-text {
+                height: 65px;
+                font-size: 14px;
+            }
+
+            .author-text {
+                height: 40px;
+                font-size: 13px;
+            }
+
+            .price {
+                width: 140px;
+
+                .price-text {
+                    font-size: 16px;
+                }
+            }
+
+            button {
+                padding-right: 15px;
+                padding-left: 15px;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+//xsmall
+@media screen and (max-width: 576px) {
+
+    .col-xs-6 {
+        position: relative;
+        width: 100%;
+        padding-right: 5px;
+        padding-left: 5px;
+        flex: 0 0 50%;
+        max-width: 50%;
+
+        .book-wrapper {
+            height: 340px;
+
+            .book-img {
+                width: 85px;
+                height: 140px;
+            }
+        }
+    }
+}
