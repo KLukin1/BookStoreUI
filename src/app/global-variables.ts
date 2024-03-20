@@ -1,2 +1,2 @@
 
-export const siteName: string = 'http://localhost:5992/';
+export const siteName: string = 'https://bookstore-webapi.azurewebsites.net/';
