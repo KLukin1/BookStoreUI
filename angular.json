@@ -40,7 +40,7 @@
                 //"node_modules/@fortawesome/fontawesome-free/scss/brands.css",
                 //"node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.css",
                 //"node_modules/angular-bootstrap-md/assets/scss/mdb.css",
-                "src/styles.less",
+                "src/styles.less?v=2",
                 "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
                 "node_modules/primeng/resources/primeng.min.css"
             ],
