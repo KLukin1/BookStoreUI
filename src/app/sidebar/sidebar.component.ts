@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CategoryService } from '../services/category-service';
 import { Category, CategoryUI } from '../models/category-model';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
     selector: 'sidebar',
@@ -17,13 +18,19 @@ export class SidebarComponent implements OnInit {
     @Output() closeHambi = new EventEmitter();
     loader: boolean = true;
 
-    constructor(private categoryService: CategoryService) { }
+    constructor(private categoryService: CategoryService, private notifier: NotifierService) { }
 
     ngOnInit() {
         this.getCategories();
     }
 
     getCategories() {
+        setTimeout(() => {
+            if (this.loader) {
+                this.notifier.notify("info", "This page is served on Azure free tier so the first page load might be slow. Thank you for your patience");
+            }
+        }, 500);
+
         this.categoryService.getCategories().subscribe(
             response => {
                 this.loader = false;
