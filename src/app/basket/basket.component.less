@@ -17,9 +17,12 @@ h2 {
 
 .basket-item {
     border-top: 1px solid #ddd;
-    height: 110px;
     padding: 10px;
     margin: 10px;
+
+    .item-row {
+        align-items: center;
+    }
 
     &:last-child {
         border-bottom: 1px solid #ddd;
@@ -97,6 +100,7 @@ h2 {
     button {
         margin: 0;
         margin-top: 10px;
+        float: right;
     }
 }
 
@@ -141,6 +145,14 @@ h2 {
             width: 30px;
         }
     }
+
+    .totals {
+        margin-top: 30px;
+
+        .totals button {
+            width: 75%;
+        }
+    }
 }
 
 //xxsmall
@@ -178,6 +190,14 @@ h2 {
             padding-left: 10px;
             width: 40px;
             height: 50px;
+        }
+    }
+
+    .totals {
+        margin-top: 30px;
+
+        button {
+            width: 75%;
         }
     }
 }

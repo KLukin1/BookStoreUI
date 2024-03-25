@@ -25,8 +25,16 @@ export class BasketComponent implements OnInit {
 
     ngOnInit() {
         this.getIsUserLogged();
+    }
 
-        this.getBasket();
+    getIsUserLogged() {
+        if (UserService.getCurrentUser()) {
+            this.userId = UserService.getCurrentUser()["UserId"];
+            this.isUserLogged = true;
+            this.getBasket();
+        } else {
+            this.isUserLogged = false;
+        }
     }
 
     getBasket() {
@@ -91,15 +99,6 @@ export class BasketComponent implements OnInit {
                 this.notifier.notify("info", "Basket is updated");
                 this.basketService.sendBasketNum();
             })
-    }
-
-    getIsUserLogged() {
-        if (UserService.getCurrentUser()) {
-            this.userId = UserService.getCurrentUser()["UserId"];
-            this.isUserLogged = true;
-        } else {
-            this.isUserLogged = false;
-        }
     }
 
     pay() {

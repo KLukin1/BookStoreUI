@@ -12,7 +12,7 @@
 <div *ngIf="isUserLogged && !isBasketEmpty">
     <h2>Basket</h2>
     <div class="basket-item" *ngFor="let book of books">
-        <div class="row">
+        <div class="row item-row">
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <button (click)="deleteFromBasketConfirm(book)" type="button" class="btn btn-sm"><i class="fa fa-trash"></i></button>
             </div>
@@ -35,13 +35,13 @@
         </div>
     </div>
 
-    <div *ngIf="!isBasketEmpty" class="row">
+    <div *ngIf="!isBasketEmpty" class="row" style="max-width:100%">
         <div class="col"></div>
         <div class="col"></div>
         <div class="col totals">
             <span class="totals-title">Subtotal</span>
             <span class="totals-price">{{totalPrice | currency:'EUR'}}</span>
-            <button type="button" class="btn btn-primary" (click)="pay()">Proceed to checkout</button>
+            <button type="button" class="btn btn-primary" (click)="pay()">Checkout</button>
         </div>
     </div>
 </div>

@@ -23,14 +23,13 @@ export class HistoryComponent implements OnInit {
 
     ngOnInit() {
         this.getIsLoggedIn();
-
-        this.getHistory();
     }
 
     getIsLoggedIn() {
         if (UserService.getCurrentUser()) {
             this.userId = UserService.getCurrentUser()["UserId"];
             this.isUserLogged = true;
+            this.getHistory();
         } else {
             this.isUserLogged = false;
         }
