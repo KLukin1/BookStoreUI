@@ -48,7 +48,6 @@ export class BasketComponent implements OnInit {
                 } else {
                     this.isBasketEmpty = true;
                 }
-                console.log(this.books);
             })
     }
 
@@ -107,6 +106,7 @@ export class BasketComponent implements OnInit {
                 result => {
                     this.notifier.notify("success", "You have succesfully ordered the Books!");
                     this.isBasketEmpty = true;
+                    window.location.href = "/history";
                 })
         }
     }

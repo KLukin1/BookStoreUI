@@ -81,8 +81,6 @@ export class AccountComponent implements OnInit {
     }
 
     logout() {
-        //this.userService.sendIsLoggedIn(false);
-        //this.isUserLogged = false;
         window.location.reload();
     }
 }

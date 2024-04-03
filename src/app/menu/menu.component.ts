@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BasketService } from '../services/basket-service';
 import * as myGlobals from '../global-variables';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user-service';
 
 
 @Component({
@@ -15,11 +16,16 @@ export class MenuComponent implements OnInit {
     isHamburgerClicked: boolean = false;
     siteName: string = myGlobals.siteName;
 
-    constructor(private basketService: BasketService, private router: Router) { this.getBasketCount(); }
+    constructor(private basketService: BasketService, private router: Router, private userService: UserService) { this.getBasketCount(); }
 
     ngOnInit() {
-        this.getBasketCountApi();
-        console.log(this.router.url.split('?')[0]);
+        this.getIsUserLogged();
+    }
+
+    getIsUserLogged() {
+        if (UserService.getCurrentUser()) {
+            this.getBasketCountApi();
+        }
     }
 
     getBasketCountApi() {
